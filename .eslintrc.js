@@ -1,20 +1,17 @@
 module.exports = {
-    "env": {
-        "node": true,
-        "es2021": true,
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-    ],
-    
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": "6",
         "sourceType": "module",
         "project": ['./tsconfig.json'],
+        "ecmaFeatures": {
+            "modules": true
+        }
     },
     "plugins": [
         "@typescript-eslint"
-    ]
+    ],
+    "rules": {
+        "no-var-require": "error"
+    }
 }

@@ -1,5 +1,4 @@
 import { ESLintUtils } from "@typescript-eslint/experimental-utils";
-import { ASTUtils, AST_NODE_TYPES } from '@typescript-eslint/experimental-utils';
 import { TSESTree } from "@typescript-eslint/experimental-utils";
 
 const RuleCreator = ESLintUtils.RuleCreator(name => name);
@@ -21,6 +20,7 @@ export default RuleCreator<Options, MessageIds>({
         }
     },
     defaultOptions: [],
+
     create(context) {
         return {
             MemberExpression(node: TSESTree.MemberExpression) {
@@ -33,7 +33,7 @@ export default RuleCreator<Options, MessageIds>({
                         messageId: 'noConsoleLog',
                     })
                 }
-            }
+            },
         }
     }
 })
